@@ -1,0 +1,66 @@
+.header_logo {
+    background-color: black;
+    padding: 15px;
+}
+
+.register {
+    width: 100%;
+    height: 100%;
+}
+
+.register_ttl {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.register_form {
+    text-align: center;
+}
+
+.register-input-container {
+    width: 40%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.register_item {
+    margin-bottom: 0;
+    margin-top: 50px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.register-input {
+    width: 100%;
+    height: 35px;
+}
+
+.register__btn {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+.register__btn__submit {
+    width: 100%;
+    height: 35px;
+    background-color: #ff5656;
+    color: #fff;
+    border: #ff5656;
+    border-radius: 3px;
+}
+
+.register_link {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #1e90ff;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+.form__error {
+    color: #ff5656;
+}

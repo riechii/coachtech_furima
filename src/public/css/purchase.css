@@ -1,0 +1,98 @@
+.purchase {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.purchase-goods {
+    width: 60%;
+    margin-top: 60px;
+    margin-left: 60px;
+}
+
+.goods-detail {
+    display: flex;
+}
+
+.purchase_img {
+    width: 100px;
+    height: 140px;
+    background-color: #d3d3d3;
+    margin-left: 30px;
+}
+
+.purchase_item {
+    margin-left: 60px;
+}
+
+.purchase_name {
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.purchase_content {
+    display: flex;
+    margin-bottom: 20%;
+    margin-top: 30px;
+}
+
+.purchase_content_item {
+    font-weight: bold;
+}
+
+.purchase_content_link {
+    margin-top: 15px;
+    margin-left: 300px;
+    text-decoration: none;
+    color: #1e90ff;
+}
+
+.purchase-confirmation {
+    margin-top: 40px;
+}
+
+.confirmation_content {
+    border: 1px solid #000;
+}
+
+.confirmation_content_detail {
+    display: flex;
+    margin-bottom: 40px;
+}
+
+.confirmation_content_detail_item {
+    margin: 30px;
+    margin-top: 50px;
+
+}
+
+.confirmation_content_detail_price {
+    margin: 50px 30px 30px 50px;
+}
+
+.confirmation_content_detail_payment {
+    display: flex;
+}
+
+.confirmation_content_detail_item_payment {
+    margin: 0 30px;
+    margin-bottom: 30px;
+}
+
+.confirmation_content_detail_price_payment {
+    margin: 0 30px 30px 50px;
+}
+
+.purchase__btn {
+    margin-top: 30px;
+}
+
+.purchase__btn__submit {
+    background-color: #ff5656;
+    color: #fff;
+    border: #ff5656;
+    padding: 5px 120px;
+    font-weight: bold;
+    border-radius: 3px;
+}
+

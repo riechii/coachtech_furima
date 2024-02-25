@@ -1,0 +1,65 @@
+.purchse_list {
+    width: 100%;
+    height: 100%;
+}
+
+.user {
+    display: flex;
+    margin-top: 40px;
+}
+
+.user_img {
+    background-color: #d3d3d3;
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    margin-left: 120px;
+}
+
+.user_name {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 40px;
+    margin-top: 35px;
+}
+
+.edit_profile {
+    text-decoration: none;
+    border: 1px solid #ff5656;
+    color: #ff5656;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 50px 0 10px 30%;
+    padding: 5px 30px;
+}
+
+.list {
+    display: flex;
+    border-bottom: 1px solid #000;
+}
+
+.xhibition_list {
+    margin-left: 80px;
+    margin-bottom: 5px;
+    margin-top: 30px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.purchase_list {
+    color: red;
+    margin-top: 30px;
+    margin-left: 40px;
+    text-decoration: none;
+    color: #000;
+    font-weight: bold;
+}
+
+.purchse_list__content {
+    width: 100px;
+    height: 110px;
+    background-color: #d3d3d3;
+    display: inline-block;
+    flex-wrap: wrap;
+    margin: 25px;
+}

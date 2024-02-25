@@ -1,0 +1,81 @@
+.address {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 100px;
+}
+
+.address_ttl {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.address_form {
+    text-align: center;
+}
+
+.profile_image {
+    width: 40%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.current_image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    background-color: #d3d3d3;
+    margin-right: 50px;
+    
+}
+
+.image_input {
+    display: none;
+}
+
+.image_item {
+    border: 1px solid #ff5656;
+    color: #ff5656;
+    border-radius: 3px;
+    padding: 5px 10px;
+    font-weight: bold;
+}
+
+.address-input_container {
+    width: 40%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.address_item {
+    margin-bottom: 0;
+    margin-top: 50px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.address-input_user {
+    width: 100%;
+    height: 45px;
+}
+
+.address-input {
+    width: 100%;
+    height: 35px;
+}
+
+.address__btn {
+    width: 40%;
+    margin: 0 auto;
+    margin-top: 70px;
+}
+
+.address__btn__submit {
+    width: 100%;
+    height: 35px;
+    background-color: #ff5656;
+    color: #fff;
+    border: #ff5656;
+    border-radius: 3px;
+}
