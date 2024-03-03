@@ -13,6 +13,7 @@
     margin-bottom: 5px;
     margin-top: 30px;
     text-decoration: none;
+    color: #000;
 }
 
 .list_mylist {
@@ -20,14 +21,15 @@
     margin-top: 30px;
     margin-left: 40px;
     text-decoration: none;
-    color: #000;
 }
 
 .top_page__content {
-    width: 100px;
-    height: 110px;
-    background-color: #d3d3d3;
     display: inline-block;
     flex-wrap: wrap;
     margin: 25px;
+}
+
+.top_page__img {
+    width: 150px;
+    height: 180px;
 }

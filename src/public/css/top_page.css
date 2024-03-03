@@ -33,3 +33,7 @@
     width: 150px;
     height: 180px;
 }
+
+.message {
+    color: red;
+}

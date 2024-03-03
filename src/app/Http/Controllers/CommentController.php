@@ -45,4 +45,12 @@ class CommentController extends Controller
         return redirect()->route('commentForm', ['item_id' => $item_id])->with('message', 'コメントを投稿しました。');
     }
 
+    //コメントの削除
+    public function commentDelete(Comment $comment)
+    {
+        $comment->delete();
+
+        return redirect()->back()->with('message', 'コメントが削除されました。');
+    }
+
 }

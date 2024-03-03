@@ -62,7 +62,11 @@
 }
 
 .mypage__img {
-    width: 120px;
-    height: 140px;
+    width: 150px;
+    height: 180px;
     margin: 25px;
+}
+
+.message {
+    color: red;
 }

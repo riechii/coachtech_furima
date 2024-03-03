@@ -16,11 +16,11 @@
         </div>
         <div class="list">
             <a class="xhibition_list" href="/mypage">出品した商品</a>
-            <a class="purchase_list" href="">購入した商品</a>
+            <a class="purchase_list" href="/purchase/list">購入した商品</a>
         </div>
         <div class="mypage__content">
             @foreach($items as $item)
-            <a href="{{ route('item', ['item_id' => $item->id]) }}"><img class="mypage__img" src="{{asset($item->image)}}" alt=""></a>
+            <a href="{{ route('item', ['item_id' => $item->id]) }}"><img class="mypage__img" src="{{asset($item->image)}}" alt="{{$item->product_name}}"></a>
             @endforeach
         </div>
     </div>

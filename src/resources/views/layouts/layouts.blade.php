@@ -13,9 +13,9 @@
     <header class="header">
         <div class="seach">
             <img class="icon" src="{{ asset('storage/images/logo.svg') }}" alt="Uploaded Image">
-            <form class="seach_content">
+            <form class="seach_content" action="{{ route('search') }}" method="get">
                 @csrf
-                <input class="seach_input" type="text" name="search" placeholder="何をお探しですか？">
+                <input class="seach_input" type="text" name="keyword" placeholder="何をお探しですか？">
                 <button class="search__btn" type="submit" value="">検索</button>
             </form>
             @if(Auth::check())

@@ -28,6 +28,10 @@ class Item extends Model
         return $this->hasMany('App\Models\Comment');
     }
 
+    public function purchases(){
+        return $this->hasMany('App\Models\Purchase');
+    }
+
     public function user(){
         return $this->belongsTo('App\Models\User');
     }

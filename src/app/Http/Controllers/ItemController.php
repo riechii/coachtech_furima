@@ -8,13 +8,16 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 use App\Models\Category;
 use App\Models\Item;
+use App\Models\Purchase;
+use App\Http\Requests\ListingRequest;
 
 class ItemController extends Controller
 {
     //トップページの表示
     public function index()
     {
-        $items = Item::all();
+        $purchasedItemIds = Purchase::pluck('item_id')->toArray();
+        $items = Item::whereNotIn('id', $purchasedItemIds)->get();
 
         return view('top_page', compact('items'));
     }
@@ -28,7 +31,7 @@ class ItemController extends Controller
     }
 
     //出品処理
-    public function listing(Request $request)
+    public function listing(ListingRequest $request)
     {
         if (!Auth::check()) {
             return redirect('/login');
@@ -61,5 +64,19 @@ class ItemController extends Controller
         $category = Category::find($item->category_id);
 
         return view('item_detail', ['item' => $item, 'category' => $category]);
+    }
+
+    //検索
+    public function search(Request $request)
+    {
+        $keyword = $request->input('keyword');
+
+        $purchasedItemIds = Purchase::pluck('item_id')->toArray();
+
+        $items = Item::whereNotIn('id', $purchasedItemIds)->where(function($query) use ($keyword) {
+            $query->where('product_name', 'like', "%$keyword%")->orWhere('explanation', 'like', "%$keyword%");
+        })->get();
+
+        return view('top_page', ['items' => $items]);
     }
 }

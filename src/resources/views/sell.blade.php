@@ -26,6 +26,11 @@
                         </label>
                     </div>
                 </div>
+                <div class="form__error">
+                    @error('image')
+                    {{ $message }}
+                    @enderror
+                </div>
                 <div class="sell-input_container">
                     <div class="sell_index">商品の詳細</div>
                     <p class="sell_item">カテゴリー</p>
@@ -36,27 +41,52 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="form__error">
+                    @error('category')
+                    {{ $message }}
+                    @enderror
+                </div>
                 <div class="sell-input_container">
                     <p class="sell_item">商品の状態</p>
-                    <input class="sell-input" type="text" name="situation" value="">
+                    <input class="sell-input" type="text" name="situation" value="{{ old('situation') }}">
+                </div>
+                <div class="form__error">
+                    @error('situation')
+                    {{ $message }}
+                    @enderror
                 </div>
                 <div class="sell-input_container">
                     <p class="sell_item">ブランド名</p>
-                    <input class="sell-input" type="text" name="brand" value="">
+                    <input class="sell-input" type="text" name="brand" value="{{ old('brand') }}">
                 </div>
                 <div class="sell-input_container">
                     <div class="sell_index">商品名と説明</div>
                     <p class="sell_item">商品名</p>
-                    <input class="sell-input" type="text" name="product_name" value="">
+                    <input class="sell-input" type="text" name="product_name" value="{{ old('product_name') }}">
+                </div>
+                <div class="form__error">
+                    @error('product_name')
+                    {{ $message }}
+                    @enderror
                 </div>
                 <div class="sell-input_container">
                     <p class="sell_item">商品の説明</p>
-                    <textarea class="sell-input_text" name="explanation" value=""></textarea>
+                    <textarea class="sell-input_text" name="explanation" value="{{ old('explanation') }}"></textarea>
+                </div>
+                <div class="form__error">
+                    @error('explanation')
+                    {{ $message }}
+                    @enderror
                 </div>
                 <div class="sell-input_container">
                     <div class="sell_index">販売価格</div>
                     <p class="sell_item">販売価格</p>
-                    <input class="sell-input" type="text" name="price" value="">
+                    <input class="sell-input" type="text" name="price" value="{{ old('price') }}">
+                </div>
+                <div class="form__error">
+                    @error('price')
+                    {{ $message }}
+                    @enderror
                 </div>
                 <div class="sell__btn">
                     <button class="sell__btn__submit" type="submit" value="">出品する</button>

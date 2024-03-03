@@ -6,15 +6,15 @@
     <div class="purchase">
         <div class="purchase-goods">
             <div class="goods-detail">
-                <img class="purchase_img" src="" alt="">
+                <img class="purchase_img" src="{{ asset($item->image) }}" alt="{{ $item->product_name }}">
                 <div class="purchase_item">
-                    <p class="purchase_name">商品名</p>
-                    <p class="purchase_price">¥値段</p>
+                    <p class="purchase_name">{{ $item->product_name }}</p>
+                    <p class="purchase_price">¥{{number_format($item->price)}}</p>
                 </div>
             </div>
             <div class="purchase_content">
                 <p class="purchase_content_item">支払い方法</p>
-                <a class="purchase_content_link" href="">変更する</a>
+                <a class="purchase_content_link" href="{{ route('payment', ['item_id' => $item->id]) }}">変更する</a>
             </div>
             <div class="purchase_content">
                 <p class="purchase_content_item">配送先　　</p>
@@ -25,20 +25,24 @@
             <div class="confirmation_content">
                 <div class="confirmation_content_detail">
                     <p class="confirmation_content_detail_item">商品代金　</p>
-                    <p class="confirmation_content_detail_price">¥金額</p>
+                    <p class="confirmation_content_detail_price">¥{{number_format($item->price)}}</p>
                 </div>
                 <div class="confirmation_content_detail_payment">
                     <p class="confirmation_content_detail_item_payment">支払い金額</p>
-                    <p class="confirmation_content_detail_price_payment">¥金額</p>
+                    <p class="confirmation_content_detail_price_payment">¥{{number_format($item->price)}}</p>
                 </div>
                 <div class="confirmation_content_detail_payment">
                     <p class="confirmation_content_detail_item_payment">支払い方法</p>
-                    <p class="confirmation_content_detail_price_payment">方法</p>
+                    <p class="confirmation_content_detail_price_payment">{{ session('payment_method') }}</p>
                 </div>
             </div>
-            <div class="purchase__btn">
-                <button class="purchase__btn__submit" type="submit" value="">購入する</button>
-            </div>
+            <form action="{{ route('buy') }}" method="post">
+                @csrf
+                <input type="hidden" name="item_id" value="{{ $item->id }}">
+                <div class="purchase__btn">
+                    <button class="purchase__btn__submit" type="submit" value="">購入する</button>
+                </div>
+            </form>
         </div>
     </div>
 @endsection

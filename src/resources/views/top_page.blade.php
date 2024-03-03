@@ -11,7 +11,7 @@
     <div class="top_page">
         <div class="list">
             <a class="list_recommendation" href="/">おすすめ</a>
-            <a class="list_mylist" href="">マイリスト</a>
+            <a class="list_mylist" href="/favorite/list">マイリスト</a>
         </div>
         @foreach($items as $item)
         <div class="top_page__content">
