@@ -70,3 +70,63 @@
 .message {
     color: red;
 }
+
+.item-container {
+    position: relative;
+}
+
+.soldout {
+    background-color: red;
+    color: #fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 10;
+    transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 767px) {
+
+.user {
+    display: block;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.user_img {
+    background-color: #d3d3d3;
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    margin-left: 0;
+}
+
+.user_name {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 0;
+    margin-top: 35px;
+}
+
+.edit_profile {
+    text-decoration: none;
+    border: 1px solid #ff5656;
+    color: #ff5656;
+    border-radius: 5px;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px 30px;
+}
+
+.mypage__img {
+    width: 150px;
+    height: 180px;
+    margin: 15px;
+}
+
+.mypage__content {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+}
+}

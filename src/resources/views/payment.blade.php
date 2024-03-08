@@ -11,7 +11,6 @@
 <body>
     <div class="payment">
         <div class="payment-content">
-            <span class="close">&times;</span>
             <h2>支払い方法を選択してください</h2>
             <form action="{{ route('paymentChange') }}" method="post">
                 @csrf

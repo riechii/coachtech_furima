@@ -37,3 +37,12 @@
 .message {
     color: red;
 }
+
+@media screen and (max-width: 767px) {
+
+.top_page__content {
+    display: inline-block;
+    flex-wrap: wrap;
+    margin: 15px;
+}
+}

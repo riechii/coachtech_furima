@@ -16,9 +16,14 @@
                 <p class="purchase_content_item">支払い方法</p>
                 <a class="purchase_content_link" href="{{ route('payment', ['item_id' => $item->id]) }}">変更する</a>
             </div>
+            @if(session('message'))
+                <div class="message">
+                    {{ session('message') }}
+                </div>
+            @endif
             <div class="purchase_content">
                 <p class="purchase_content_item">配送先　　</p>
-                <a class="purchase_content_link" href="">変更する</a>
+                <a class="purchase_content_link" href="{{ route('address', ['item_id' => $item->id]) }}">変更する</a>
             </div>
         </div>
         <div class="purchase-confirmation">
@@ -35,6 +40,11 @@
                     <p class="confirmation_content_detail_item_payment">支払い方法</p>
                     <p class="confirmation_content_detail_price_payment">{{ session('payment_method') }}</p>
                 </div>
+            </div>
+            <div class="form__error">
+                @error('payment')
+                {{ $message }}
+                @enderror
             </div>
             <form action="{{ route('buy') }}" method="post">
                 @csrf

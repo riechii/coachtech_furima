@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Favorite;
 use App\Models\Item;
+use App\Models\Purchase;
 use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
@@ -37,8 +38,10 @@ class FavoriteController extends Controller
     public function favoriteList(Request $request)
     {
         if (auth()->check()) {
-        $favoriteItemIds = auth()->user()->favorites()->pluck('item_id');
-        $favoriteItems = Item::whereIn('id', $favoriteItemIds)->get();
+        $favoriteItemIds = auth()->user()->favorites()->pluck('item_id')->toArray();
+        $allPurchasedItemIds = Purchase::pluck('item_id')->toArray();
+
+        $favoriteItems = Item::whereNotIn('id', $allPurchasedItemIds)->whereIn('id', $favoriteItemIds)->get();
 
         return view('mylist', ['favoriteItems' => $favoriteItems]);
         }else{

@@ -8,6 +8,7 @@ use App\Models\Item;
 use App\Models\User;
 use App\Models\Purchase;
 use Carbon\Carbon;
+use App\Http\Requests\BuyRequest;
 
 class PaymentController extends Controller
 {
@@ -52,7 +53,7 @@ class PaymentController extends Controller
     }
 
     //購入処理
-    public function buy(Request $request)
+    public function buy(BuyRequest $request)
     {
         if (!Auth::check()) {
             return redirect('/login');

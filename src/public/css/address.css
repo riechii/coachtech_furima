@@ -51,3 +51,7 @@
     border: #ff5656;
     border-radius: 3px;
 }
+
+.form__error {
+    color: red;
+}

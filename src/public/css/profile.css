@@ -27,7 +27,6 @@
     border-radius: 50px;
     background-color: #d3d3d3;
     margin-right: 50px;
-    
 }
 
 .image_input {
@@ -82,4 +81,12 @@
 
 .form__error {
     color: red;
+}
+
+@media screen and (max-width: 767px) {
+.profile_image {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
 }

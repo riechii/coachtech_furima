@@ -15,37 +15,37 @@
                 </label>
             </div>
             <div class="form__error">
-                    @error('image')
-                    {{ $message }}
-                    @enderror
-                </div>
+                @error('image')
+                {{ $message }}
+                @enderror
+            </div>
             <div class="address-input_container">
                 <p class="address_item">ユーザー名</p>
                 <input class="address-input_user" type="text" name="name" value="{{ $user->name }}">
             </div>
             <div class="form__error">
-                    @error('name')
-                    {{ $message }}
-                    @enderror
-                </div>
+                @error('name')
+                {{ $message }}
+                @enderror
+            </div>
             <div class="address-input_container">
                 <p class="address_item">郵便番号</p>
                 <input class="address-input" type="text" name="post" pattern="\d{3}-\d{4}" value="{{ $user->post }}">
             </div>
             <div class="form__error">
-                    @error('post')
-                    {{ $message }}
-                    @enderror
-                </div>
+                @error('post')
+                {{ $message }}
+                @enderror
+            </div>
             <div class="address-input_container">
                 <p class="address_item">住所</p>
                 <input class="address-input" type="text" name="address" value="{{ $user->address }}">
             </div>
             <div class="form__error">
-                    @error('address')
-                    {{ $message }}
-                    @enderror
-                </div>
+                @error('address')
+                {{ $message }}
+                @enderror
+            </div>
             <div class="address-input_container">
                 <p class="address_item">建物名</p>
                 <input class="address-input" type="text" name="building" value="{{ $user->building }}">

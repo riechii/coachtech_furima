@@ -71,7 +71,7 @@
                 </div>
                 <div class="sell-input_container">
                     <p class="sell_item">商品の説明</p>
-                    <textarea class="sell-input_text" name="explanation" value="{{ old('explanation') }}"></textarea>
+                    <textarea class="sell-input_text" name="explanation">{{ old('explanation') }}</textarea>
                 </div>
                 <div class="form__error">
                     @error('explanation')

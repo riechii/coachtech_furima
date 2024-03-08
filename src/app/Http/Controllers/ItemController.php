@@ -62,8 +62,9 @@ class ItemController extends Controller
     {
         $item = Item::find($item_id);
         $category = Category::find($item->category_id);
+        $purchase = Purchase::where('item_id', $item->id)->exists();
 
-        return view('item_detail', ['item' => $item, 'category' => $category]);
+        return view('item_detail', ['item' => $item, 'category' => $category, 'purchase'=>$purchase]);
     }
 
     //検索

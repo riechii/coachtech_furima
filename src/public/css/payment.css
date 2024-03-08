@@ -1,0 +1,13 @@
+.payment-content {
+    text-align: center;
+}
+
+.payment__btn__submit {
+    width: 200px;
+    height: 35px;
+    background-color: #ff5656;
+    color: #fff;
+    border: #ff5656;
+    border-radius: 3px;
+    margin-top: 20px;
+}

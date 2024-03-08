@@ -20,7 +20,12 @@
         </div>
         <div class="mypage__content">
             @foreach($items as $item)
-            <a href="{{ route('item', ['item_id' => $item->id]) }}"><img class="mypage__img" src="{{asset($item->image)}}" alt="{{$item->product_name}}"></a>
+            <div class="item-container">
+                @if($item->sold_out)
+                    <span class="soldout">Sold Out</span>
+                @endif
+                <a href="{{ route('item', ['item_id' => $item->id]) }}"><img class="mypage__img" src="{{asset($item->image)}}" alt="{{$item->product_name}}"></a>
+            </div>
             @endforeach
         </div>
     </div>

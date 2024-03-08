@@ -30,7 +30,9 @@
                     <p class="icon_count-comment">{{$item->comments->count()}}</p>
                 </div>
             </div>
-            <a class="item_purchase" href="{{ route('purchase', ['item_id' => $item->id]) }}">購入する</a>
+            @if (!$purchase)
+                <a class="item_purchase" href="{{ route('purchase', ['item_id' => $item->id]) }}">購入する</a>
+            @endif
             <h4 class="item_detail_ttl">商品説明</h4>
             <p class="explanation">{{ $item->explanation }}</p>
             <h4 class="item_detail_ttl">商品の情報</h4>

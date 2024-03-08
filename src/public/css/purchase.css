@@ -96,3 +96,54 @@
     border-radius: 3px;
 }
 
+.form__error {
+    color: red;
+}
+
+.message {
+    color: red;
+}
+
+@media screen and (max-width: 767px) {
+
+.purchase {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.purchase-goods {
+    width: 100%;
+    margin-top: 60px;
+    margin-left: 0;
+}
+
+.purchase_content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20%;
+    margin-top: 30px;
+}
+
+.purchase_content_item {
+    font-weight: bold;
+
+}
+
+.purchase_content_link {
+    margin-top: 15px;
+    margin-left: 100px;
+    text-decoration: none;
+    color: #1e90ff;
+}
+
+.purchase__btn__submit {
+    background-color: #ff5656;
+    color: #fff;
+    border: #ff5656;
+    padding: 5px 120px;
+    font-weight: bold;
+    border-radius: 3px;
+    width: 100%;
+}
+}

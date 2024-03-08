@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Item;
 use App\Models\Purchase;
 use App\Http\Requests\ProfileRequest;
+use App\Http\Requests\AddressRequest;
 
 
 class MypageController extends Controller
@@ -18,6 +19,14 @@ class MypageController extends Controller
         $user = auth()->user();
         $userId = auth()->id();
         $items = Item::where('user_id', $userId)->get();
+        $purchasedItemIds = Purchase::pluck('item_id')->toArray();
+        foreach ($items as $item) {
+            if (in_array($item->id, $purchasedItemIds)) {
+                $item->sold_out = true;
+            } else {
+                $item->sold_out = false;
+            }
+        }
 
         return view('mypage', ['user' => $user,'items' => $items]);
     }
@@ -62,5 +71,33 @@ class MypageController extends Controller
         $purchases = Purchase::where('user_id', $userId)->get();
 
         return view('purchase_list', ['user' => $user,'purchases' => $purchases]);
+    }
+
+    //配送先変更フォームの表示
+    public function address($item_id)
+    {
+        if (!Auth::check()) {
+            return redirect('/login');
+        }
+        $user = auth()->user();
+
+        return view('address', ['item_id' => $item_id,'user' => $user]);
+    }
+
+    //配送先変更処理
+    public function addressUpdate(AddressRequest $request)
+    {
+        $user_id = auth()->id();
+        $user = User::find($user_id);
+
+        $user->update([
+            'post'=> $request->post,
+            'address'=> $request->address,
+            'building'=> $request->building
+        ]);
+
+        $item_id = $request->input('item_id');
+
+        return redirect()->route('purchase', ['item_id' => $item_id])->with('message', '配送先を変更しました。');
     }
 }
