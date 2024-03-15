@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Item;
 use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\CommentRequest;
 
 class CommentController extends Controller
 {
@@ -23,7 +24,7 @@ class CommentController extends Controller
     }
 
     //コメントの投稿
-    public function comment(Request $request)
+    public function comment(CommentRequest $request)
     {
         if (!Auth::check()) {
             return redirect('/login');

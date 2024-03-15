@@ -20,6 +20,9 @@
             </form>
             @if(Auth::check())
             <nav class="seach_nav">
+                @can('creation')
+                    <a class="seach_link" href="{{ route('notification') }}">管理画面</a>
+                @endcan
                 <form class="seach_form" action="/logout" method="post">
                     @csrf
                     <button class="seach_logaut">ログアウト</button>

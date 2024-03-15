@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Models\Purchase;
 use Carbon\Carbon;
 use App\Http\Requests\BuyRequest;
+use Stripe\Stripe;
+use Stripe\Charge;
 
 class PaymentController extends Controller
 {
@@ -31,8 +33,6 @@ class PaymentController extends Controller
     //支払い変更処理
     public function paymentChange(Request $request)
     {
-        // $paymentMethod = $request->payment_method;
-        // session(['payment_method' => $paymentMethod]);
         $paymentMethod = $request->payment_method;
         $paymentMethodName = '';
 
@@ -62,9 +62,42 @@ class PaymentController extends Controller
             $purchase->user_id = auth()->id();
             $purchase->item_id = $request->input('item_id');
             $purchase->sales_day = Carbon::now();
-            $purchase->payment = session('payment_method');
+            $paymentMethod = $request->payment;
+            $purchase->payment = $paymentMethod;
             $purchase->save();
 
-            return redirect()->route('mypage')->with('message', '購入が完了しました。');
+            $item = Item::find($request->input('item_id'));
+            $amount = $item->price;
+
+            if ($purchase->payment === 'クレジットカード') {
+
+                return redirect()->route('stripeForm', ['item_id' => $item->id]);
+            } else {
+
+                return redirect()->route('mypage')->with('message', '購入が完了しました。');
+            }
+    }
+
+    //スプライトの支払い画面表示
+    public function stripeForm($item_id)
+    {
+        $item = Item::find($item_id);
+        return view('stripe_form', ['item' => $item]);
+    }
+
+    //スプライトの支払い処理
+    public function stripe(Request $request)
+    {
+        Stripe::setApiKey(config('stripe.secret_key'));
+
+        $purchase = Purchase::find($request->purchase_id);
+        $amount = $request->input('amount');
+            $charge = Charge::create([
+                'amount' => $amount, // 金額（単位は通貨の最小単位）
+                'currency' => 'JPY', // 通貨
+                'description' => '購入商品', // 説明
+                'source' => $request->stripeToken, // Stripeトークン
+            ]);
+        return redirect()->route('mypage')->with('message', '支払いが完了しました。');
     }
 }

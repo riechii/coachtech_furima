@@ -104,6 +104,16 @@
     cursor: pointer
 }
 
+.delete__btn_others_submit {
+    background-color: #ff5656;
+    color: #fff;
+    border: #ff5656;
+    border-radius: 3px;
+    padding: 3px;
+    margin-left: 90px;
+    cursor: pointer
+}
+
 .comment_text {
     background-color: #d3d3d3;
     width: 250px;
@@ -139,3 +149,6 @@
     color: red;
 }
 
+.form__error {
+    color: red;
+}

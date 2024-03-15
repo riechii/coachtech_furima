@@ -51,6 +51,15 @@
                 @else
                     <img class="comment_img" src="/{{ $comment->user->image }}" alt="">
                     <div class="comment_name">{{ $comment->user->name }}</div>
+                    @can('creation')
+                        <form action="{{ route('commentDelete', $comment->id) }}" method="post">
+                        @csrf
+                        @method('DELETE')
+                            <div class="delete__btn">
+                                <button class="delete__btn_others_submit" type="submit" value="">削除</button>
+                            </div>
+                        </form>
+                    @endcan
                 @endif
             </div>
             <div class="comment_text">{{ $comment->comment }}</div>
@@ -58,6 +67,11 @@
             <form class="comment_form" action="/comment" method="post">
                 @csrf
                 <p class="comment_item">商品へのコメント</p>
+                <div class="form__error">
+                    @error('comment')
+                        {{ $message }}
+                    @enderror
+                </div>
                 <input type="hidden" name="item_id" value="{{ $item->id }}">
                 <textarea class="comment_input" name="comment"></textarea>
                 <div class="comment__btn">

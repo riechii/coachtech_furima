@@ -7,7 +7,7 @@ use App\Http\Controllers\FavoriteController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\NotificationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,9 +46,14 @@ Route::get('/purchase/{item_id}', [PaymentController::class, 'purchase'])->name(
 Route::get('/payment/{item_id}', [PaymentController::class, 'payment'])->name('payment');
 Route::post('/payment/change', [PaymentController::class, 'paymentChange'])->name('paymentChange');
 Route::post('/buy', [PaymentController::class, 'buy'])->name('buy');
+Route::get('/stripe/form/{item_id}', [PaymentController::class, 'stripeForm'])->name('stripeForm');
+Route::post('/stripe', [PaymentController::class, 'stripe'])->name('stripe');
 
+Route::get('/user', [ManagementController::class, 'user'])->name('user');
+Route::delete('/user/delete/{user_id}', [ManagementController::class, 'userDelete'])->name('userDelete');
 
-
+Route::get('/notification', [NotificationController::class, 'notification'])->name('notification');
+Route::post('/send/notification', [NotificationController::class, 'sendNotification'])->name('sendNotification');
 
 
 

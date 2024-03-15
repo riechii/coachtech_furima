@@ -49,6 +49,7 @@
             <form action="{{ route('buy') }}" method="post">
                 @csrf
                 <input type="hidden" name="item_id" value="{{ $item->id }}">
+                <input type="hidden" name="payment" value="{{ session('payment_method') }}">
                 <div class="purchase__btn">
                     <button class="purchase__btn__submit" type="submit" value="">購入する</button>
                 </div>
