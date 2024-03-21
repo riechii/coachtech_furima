@@ -8,13 +8,10 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install Composer
+          name: Install Composer dependencies
           command: |
-            curl -sS https://getcomposer.org/installer | php
-            mv composer.phar /usr/local/bin/composer
-      - run:
-          name: Install dependencies
-          command: composer install --prefer-dist --no-progress --no-suggest
+            cd src
+            composer install --prefer-dist --no-progress
       - run:
           name: Run tests
           command: ./vendor/bin/phpunit
