@@ -4,7 +4,7 @@ orbs:
 jobs:
   test-php:
     docker:
-      - image: cimg/php:7.3-node
+      - image: cimg/php:7.4-node
     steps:
       - checkout
       - run:
