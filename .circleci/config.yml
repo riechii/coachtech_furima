@@ -14,7 +14,7 @@ jobs:
             composer install --prefer-dist --no-progress
       - run:
           name: Run tests
-          command: php ./vendor/phpunit --testdox ./src/tests/Feature
+          command: php ./src/vendor/phpunit --testdox ./src/tests/Feature
 workflows:
   build-and-test:
     jobs:
