@@ -46,7 +46,7 @@ class ListingRequest extends FormRequest
             'explanation.required' => '説明を入力してください',
             'explanation.string' => '説明を文字列で入れてください',
             'price.required' => '価格を入力してください',
-            'price.numeric' => '価格を数値で入力してください',
+            'price.numeric' => '価格を半角で入力してください',
             'price.regex' => '価格を半角数字でしてください',
         ];
     }

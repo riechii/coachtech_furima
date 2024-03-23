@@ -9,20 +9,10 @@ use App\Models\User;
 
 class ManagementController extends Controller
 {
-    //アップロードフォームの表示
+    //カテゴリー追加の表示
     public function uploadForm(Request $request)
     {
         return view('upload');
-    }
-
-    //画像のアップロード
-    public function upload(Request $request)
-    {
-        $image = $request->file('image');
-        $imageName = $image->getClientOriginalName();
-        Storage::disk('public')->putFileAs('images', $image, $imageName);
-
-        return redirect('/upload/form');
     }
 
     //カテゴリー追加

@@ -51,13 +51,10 @@ Route::post('/stripe', [PaymentController::class, 'stripe'])->name('stripe');
 
 Route::get('/user', [ManagementController::class, 'user'])->name('user');
 Route::delete('/user/delete/{user_id}', [ManagementController::class, 'userDelete'])->name('userDelete');
+Route::get('/upload/form', [ManagementController::class, 'uploadForm'])->name('uploadForm');
+Route::post('/upload/category', [ManagementController::class, 'uploadCategory'])->name('uploadCategory');
 
 Route::get('/notification', [NotificationController::class, 'notification'])->name('notification');
 Route::post('/send/notification', [NotificationController::class, 'sendNotification'])->name('sendNotification');
 
-
-
-Route::get('/upload/form', [ManagementController::class, 'uploadForm'])->name('uploadForm');
-Route::post('/upload', [ManagementController::class, 'upload'])->name('upload');
-Route::post('/upload/category', [ManagementController::class, 'uploadCategory'])->name('uploadCategory');
 

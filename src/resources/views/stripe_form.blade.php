@@ -16,7 +16,7 @@
         <form class="stripe_form" action="{{ route('stripe') }}" method="post">
             @csrf
             <label for="amount">金額：</label>
-            <input type="number" name="amount" id="amount" value="{{ $item->price }}" required>
+            <input type="number" name="amount" id="amount" value="{{ $item->price }}" readonly required>
             <script
                 src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="{{ config('stripe.publishable_key') }}"

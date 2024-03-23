@@ -13,6 +13,7 @@
         <div class="list">
             <a class="list_mail" href="/notification">お知らせメール</a>
             <a class="list_delete" href="/user">ユーザー削除</a>
+            <a class="list_category" href="/upload/form">カテゴリー追加</a>
         </div>
         <table class="user_list_table">
             <tr class="list_row_wrp">

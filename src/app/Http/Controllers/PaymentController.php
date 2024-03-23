@@ -93,10 +93,10 @@ class PaymentController extends Controller
         $purchase = Purchase::find($request->purchase_id);
         $amount = $request->input('amount');
             $charge = Charge::create([
-                'amount' => $amount, // 金額（単位は通貨の最小単位）
-                'currency' => 'JPY', // 通貨
-                'description' => '購入商品', // 説明
-                'source' => $request->stripeToken, // Stripeトークン
+                'amount' => $amount,
+                'currency' => 'JPY',
+                'description' => '購入商品',
+                'source' => $request->stripeToken,
             ]);
         return redirect()->route('mypage')->with('message', '支払いが完了しました。');
     }
