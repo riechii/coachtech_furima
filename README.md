@@ -1,5 +1,6 @@
 # coachtechフリマ
 フリマアプリです。会員登録することで商品の出品、購入、お気に入り登録、コメントができます。
+![oachtech_furima_top](https://github.com/riechii/rese/blob/main/oachtech_furima_top.png)
 ##　作成した目的
 laravel学習のために作成しました。成果物の機能やイメージをいただきそれに沿って作成しました。
 ##　機能一覧
@@ -33,9 +34,9 @@ laravel学習のために作成しました。成果物の機能やイメージ�
 ・PHP 8.0.30
 
 ## テーブル設計
-
+![coachtech_furima_table](https://github.com/riechii/rese/blob/main/coachtech_furima_table.png)
 ## ER図
-
+![oachtech_furima_er](https://github.com/riechii/rese/blob/main/oachtech_furima_er.png)
 ## 環境構築
 1 laravelプロジェクトを実行したいディレクトリに移動
 
