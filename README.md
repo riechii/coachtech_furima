@@ -2,9 +2,9 @@
 フリマアプリです。会員登録することで商品の出品、購入、お気に入り登録、コメントができます。
 ![oachtech_furima_top](https://github.com/riechii/coachtech_furima/blob/main/oachtech_furima_top.png)
 
-##　作成した目的
+## 作成した目的
 laravel学習のために作成しました。成果物の機能やイメージをいただきそれに沿って作成しました。
-##　機能一覧
+## 機能一覧
 ・会員登録機能(名前、メールアドレス、パスワード)
 
 ・ログイン(メールアドレス、パスワードで認証)
