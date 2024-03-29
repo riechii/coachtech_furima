@@ -22,7 +22,7 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-            - /Users/tamo/.ssh
+            - /Users/tamo/.ssh/ec2_key.pem
       - run:
           name: SSH into EC2 and pull code
           command: |
