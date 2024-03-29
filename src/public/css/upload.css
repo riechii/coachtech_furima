@@ -56,3 +56,24 @@
     padding: 10px;
     cursor: pointer
 }
+
+@media screen and (max-width: 767px){
+
+.list {
+    text-align: left;
+    font-weight: bold;
+    margin: 3%;
+}
+
+.list_delete {
+    color: #000;
+    text-decoration: none;
+    margin-left: 5px;
+}
+
+.list_category {
+    color: red;
+    text-decoration: none;
+    margin-left: 5px;
+}
+}

@@ -92,12 +92,12 @@ class PaymentController extends Controller
 
         $purchase = Purchase::find($request->purchase_id);
         $amount = $request->input('amount');
-            $charge = Charge::create([
-                'amount' => $amount,
-                'currency' => 'JPY',
-                'description' => '購入商品',
-                'source' => $request->stripeToken,
-            ]);
+        $charge = Charge::create([
+            'amount' => $amount,
+            'currency' => 'JPY',
+            'description' => '購入商品',
+            'source' => $request->stripeToken,
+        ]);
         return redirect()->route('mypage')->with('message', '支払いが完了しました。');
     }
 }

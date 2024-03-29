@@ -38,12 +38,12 @@ class FavoriteController extends Controller
     public function favoriteList(Request $request)
     {
         if (auth()->check()) {
-        $favoriteItemIds = auth()->user()->favorites()->pluck('item_id')->toArray();
-        $allPurchasedItemIds = Purchase::pluck('item_id')->toArray();
+            $favoriteItemIds = auth()->user()->favorites()->pluck('item_id')->toArray();
+            $allPurchasedItemIds = Purchase::pluck('item_id')->toArray();
 
-        $favoriteItems = Item::whereNotIn('id', $allPurchasedItemIds)->whereIn('id', $favoriteItemIds)->get();
+            $favoriteItems = Item::whereNotIn('id', $allPurchasedItemIds)->whereIn('id', $favoriteItemIds)->get();
 
-        return view('mylist', ['favoriteItems' => $favoriteItems]);
+            return view('mylist', ['favoriteItems' => $favoriteItems]);
         }else{
             return redirect('/login');
         }

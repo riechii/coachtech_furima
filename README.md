@@ -43,21 +43,23 @@ laravel学習のために作成しました。成果物の機能やイメージ�
 
 2 $ git clone git@github.com:riechii/coachtech_furima.git
 
-3 $ docker-compose up -d --build
+3 $ cd coachtech_furima
 
-4 Dockerのコンテナに入る $ docker-compose exec php bash
+4 $ docker-compose up -d --build
 
-5 composerをインストール $ composer install
+5 Dockerのコンテナに入る $ docker-compose exec php bash
 
-6 PHPUnitのインストール $ composer require --dev phpunit/phpunit
+6 composerをインストール $ composer install
 
-7 Stripe PHPライブラリをインストールする $ composer require stripe/stripe-php
+7 PHPUnitのインストール $ composer require --dev phpunit/phpunit
 
-8 .evnの作成 $ cp .env.example .env
+8 Stripe PHPライブラリをインストールする $ composer require stripe/stripe-php
 
-9 APP_KEYを作成 $ php artisan key:generate
+9 .evnの作成 $ cp .env.example .env
 
-10 .envの設定を変える
+10 APP_KEYを作成 $ php artisan key:generate
+
+11 .envの設定を変える
 
 DB_HOST=DBコンテナのサービス名、 DB_DATABASE、DB_USERNAME、DB_PASSWORD、docker-compose.ymlで作成したデータベース名、ユーザ名、パスワードを記述
 
@@ -65,10 +67,10 @@ STRIPE_KEYとSTRIPE_SECRETも記述
 
 メールのSMTPサーバーの設定も行う
 
-11 画像をストレージに保存するためのシンボリックリンクの作成 $ php artisan storage:link
+12 画像をストレージに保存するためのシンボリックリンクの作成 $ php artisan storage:link
 
-12 テーブル作成 $ php artisan migrate
+13 テーブル作成 $ php artisan migrate
 
-13 ダミーデータの作成 $ php artisan db:seed
+14 ダミーデータの作成 $ php artisan db:seed
 
 localhost:80（Nginxコンテナのポートを80にした場合）にアクセスすると表示されます。
