@@ -23,7 +23,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-          - "SHA256:sqQ1Hi9mm7Z07rGiw1BSOg9NbiIAQ02uWOAdiVC747M"
+          - "SHA256:qjla8mwHeAUlbj/9JRGJYtrH4G+s4ryvDotSqml0sZ0"
       - run:
           name: SSH into EC2 and pull code
           command: |
