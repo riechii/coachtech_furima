@@ -52,13 +52,23 @@ class MypageController extends Controller
             'building' => $request->building,
         ];
 
-        if ($request->hasFile('image')){
+        if ($request->hasFile('image')) {
             $original = $request->file('image')->getClientOriginalName();
             $time = now()->format('Ymd_Hi');
             $fileName = $time . '_' . $original;
-            $request->file('image')->storeAs('public/images', $fileName);
-            $data['image'] = 'storage/images/' . $fileName;
+
+            if (app()->environment('local')) {
+
+                $request->file('image')->storeAs('public/images', $fileName);
+                $data['image'] = 'storage/images/' . $fileName;
+            } else {
+
+                $path = $request->file('image')->storeAs('public/images', $fileName, 's3');
+                $url = Storage::disk('s3')->url($path);
+                $data['image'] = $url;
+            }
         }
+
         $user->update($data);
 
         return redirect()->route('mypage', ['id' => $id])->with('message', 'プロフィールを変更しました。');

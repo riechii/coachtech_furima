@@ -36,22 +36,35 @@ class ItemController extends Controller
         if (!Auth::check()) {
             return redirect('/login');
         }
-            $item = new Item();
-            $item->user_id = auth()->id();
-            $item->category_id = $request->input('category');
-            $item->situation = $request->input('situation');
-            $item->product_name = $request->input('product_name');
-            $item->brand = $request->input('brand');
-            $item->explanation = $request->input('explanation');
-            $item->price = $request->input('price');
 
-            $uploadedFile = $request->file('image');
-            $original = $uploadedFile->getClientOriginalName();
+        $item = new Item();
+        $item->user_id = auth()->id();
+        $item->category_id = $request->input('category');
+        $item->situation = $request->input('situation');
+        $item->product_name = $request->input('product_name');
+        $item->brand = $request->input('brand');
+        $item->explanation = $request->input('explanation');
+        $item->price = $request->input('price');
+
+        $uploadedFile = $request->file('image');
+
+        if (app()->environment('local')) {
+
+            $originalName = $uploadedFile->getClientOriginalName();
             $time = now()->format('Ymd_Hi');
-            $fileName = $time . '_' . $original;
+            $fileName = $time . '_' . $originalName;
             $uploadedFile->storeAs('public/images', $fileName);
-
             $item->image = 'storage/images/' . $fileName;
+        } else {
+
+            $originalName = $uploadedFile->getClientOriginalName();
+            $time = now()->format('Ymd_His');
+            $fileName = $time . '_' . $originalName;
+            $path = $uploadedFile->storeAs('images', $fileName, 's3');
+            $url = Storage::disk('s3')->url($path);
+            $item->image = $url;
+        }
+
             $item->save();
 
         return redirect('/')->with('message', '出品されました');
