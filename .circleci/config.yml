@@ -22,7 +22,8 @@ jobs:
     steps:
       - checkout
       - add_ssh_keys:
-            - /Users/tamo/.ssh/ec2_key.pem
+          fingerprints:
+          - "SHA256:sqQ1Hi9mm7Z07rGiw1BSOg9NbiIAQ02uWOAdiVC747M"
       - run:
           name: SSH into EC2 and pull code
           command: |
