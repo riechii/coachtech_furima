@@ -21,6 +21,8 @@ jobs:
       - image: cimg/php:8.0-node
     steps:
       - checkout
+      - add_ssh_keys:
+            - /Users/tamo/.ssh
       - run:
           name: SSH into EC2 and pull code
           command: |
@@ -37,4 +39,3 @@ workflows:
           filters:
             branches:
               only: master
-              
