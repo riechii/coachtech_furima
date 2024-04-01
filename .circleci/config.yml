@@ -29,6 +29,7 @@ jobs:
           command: |
             ssh -i $SSH_KEY_PATH ec2-user@13.230.106.216 'cd /home/ec2-user/coachtech_furima && git pull'
           no_output_timeout: 10m
+
 workflows:
   version: 2
   build-and-test:
