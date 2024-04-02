@@ -15,7 +15,6 @@ jobs:
       - run:
           name: Run tests
           command: php ./src/vendor/phpunit --testdox ./src/tests/Feature
-
   deploy-to-ec2:
     docker:
       - image: cimg/base:stable
@@ -34,7 +33,6 @@ jobs:
           name: Deploy to EC2
           command: |
             ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@13.231.147.4 'cd /home/ec2-user/coachtech_furima && git pull'
-
 workflows:
   version: 2
   build-and-test:
