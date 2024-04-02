@@ -33,7 +33,7 @@ jobs:
       - run:
           name: Deploy to EC2
           command: |
-            ssh -i ~/.ssh/id_rsa ec2-user@13.231.147.4 'cd /home/ec2-user/coachtech_furima && git pull'
+            ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_rsa ec2-user@13.231.147.4 'cd /home/ec2-user/coachtech_furima && git pull'
 
 workflows:
   version: 2
