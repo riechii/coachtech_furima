@@ -28,6 +28,9 @@ jobs:
           name: Install SSH key
           command: echo "$EC2_DEPLOY_KEY" > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
       - run:
+          name: Set StrictHostKeyChecking
+          command: echo "Host 13.231.147.4\n    StrictHostKeyChecking no" >> ~/.ssh/config
+      - run:
           name: Deploy to EC2
           command: |
             ssh -i ~/.ssh/id_rsa ec2-user@13.231.147.4 'cd /home/ec2-user/coachtech_furima && git pull'
