@@ -18,21 +18,16 @@ jobs:
 
   deploy-to-ec2:
     docker:
-      - image: cimg/php:8.0-node
+      - image: cimg/base:stable
     steps:
       - checkout
-      - add_ssh_keys:
-          fingerprints:
-          - "SHA256:qjla8mwHeAUlbj/9JRGJYtrH4G+s4ryvDotSqml0sZ0"
       - run:
-          name: Set permissions for SSH key
-          command: |
-            chmod 600 ~/.ssh/ec2_key
+          name: Install SSH key
+          command: echo "$EC2_DEPLOY_KEY" | base64 -d > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
       - run:
-          name: SSH into EC2 and pull code
+          name: Deploy to EC2
           command: |
-            ssh -i $SSH_KEY_PATH ec2-user@13.230.106.216 'cd /home/ec2-user/coachtech_furima && git pull'
-          no_output_timeout: 10m
+            ssh -i ~/.ssh/id_rsa ec2-user@13.231.147.4 'cd /home/ec2-user/coachtech_furima && git pull'
 
 workflows:
   version: 2
