@@ -22,6 +22,9 @@ jobs:
     steps:
       - checkout
       - run:
+          name: Create ~/.ssh directory
+          command: mkdir -p ~/.ssh
+      - run:
           name: Install SSH key
           command: echo "$EC2_DEPLOY_KEY" | base64 -d > ~/.ssh/id_rsa && chmod 600 ~/.ssh/id_rsa
       - run:
