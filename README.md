@@ -74,3 +74,15 @@ STRIPE_KEYとSTRIPE_SECRETも記述
 14 ダミーデータの作成 $ php artisan db:seed
 
 localhost:80（Nginxコンテナのポートを80にした場合）にアクセスすると表示されます。
+
+## aws
+awsではバックエンドをEC2、データベースをRDS(Mysql)、ストレージをS3で作成しております。
+
+13.231.147.4
+
+## 使用技術(実行環境)
+・laravel 8.83.8
+
+・mysql 8.0.35
+
+・PHP 8.0.2
